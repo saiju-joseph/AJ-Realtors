@@ -13,6 +13,9 @@ p {
    margin-bottom: 0;
 }
 
+p {
+   line-height: 30px;
+}
 .bg-gray {
    background-color: #424242;
 }
@@ -529,4 +532,111 @@ input:focus {
 .login-modal .left-banner img {
    height: 100%;
    object-fit: cover;
+}
+
+.property-inner-head {
+   background-color: #f9f9f9;
+   border: 1px solid rgba(102, 102, 102, 0.5);
+   border-radius: 5px;
+   padding: 20px 35px;
+}
+
+.property-inner-head h6 {
+   color: #000;
+   font-size: 18px;
+   font-weight: 700;
+}
+
+.property-inner-head .itinary-box p {
+   color: #666;
+   font-weight: 600;
+}
+
+.property-inner-head .itinary-box {
+   padding: 15px 50px 20px 35px;
+}
+
+.property-inner-head .itinary-box.border-left {
+   border-left: 1px solid #999;
+}
+
+.product-info-box {
+   background-color: #0063ff;
+   padding: 25px;
+   color: #fff;
+   border-radius: 14px;
+}
+
+.inner-column {
+   border-bottom: 1px solid #fff;
+}
+
+.contact-agent-form {
+   background-color: #fff;
+   padding: 30px 35px 38px;
+}
+
+.contact-agent-form .form-control {
+   border: 1px solid rgba(221, 221, 221, 1);
+   border-radius: 1px;
+   height: 55px;
+}
+
+.contact-agent-form textarea.form-control {
+   height: auto;
+}
+
+.sub-title {
+   font-size: 18px;
+   font-weight: 600;
+}
+
+#sync1 .item {
+   text-align: center;
+}
+
+#sync2 .item {
+   background: #c9c9c9;
+   margin: 5px;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   border-radius: 3px;
+   text-align: center;
+   cursor: pointer;
+}
+#sync2 .item h1 {
+   font-size: 18px;
+}
+
+.owl-theme .owl-nav {
+   /*default owl-theme theme reset .disabled:hover links */
+}
+.owl-theme .owl-nav [class*='owl-'] {
+   transition: all 0.3s ease;
+}
+.owl-theme .owl-nav [class*='owl-'].disabled:hover {
+   background-color: #d6d6d6;
+}
+
+#sync1.owl-theme {
+   position: relative;
+}
+#sync1.owl-theme .owl-next,
+#sync1.owl-theme .owl-prev {
+   width: 22px;
+   height: 40px;
+   margin-top: -20px;
+   position: absolute;
+   top: 50%;
+}
+#sync1.owl-theme .owl-prev {
+   left: 10px;
+}
+#sync1.owl-theme .owl-next {
+   right: 10px;
+}
+.ifrm {
+   border: none;
+   width: 100%;
+   margin-top: 50px;
 }
