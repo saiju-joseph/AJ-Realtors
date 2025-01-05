@@ -17,6 +17,11 @@
          rel="stylesheet"
       />
       <link
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+         rel="stylesheet"
+      />
+
+      <link
          rel="stylesheet"
          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
       />
@@ -32,6 +37,7 @@
          rel="stylesheet"
          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.min.css"
       />
+
       <link
          rel="stylesheet"
          href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css"
@@ -47,7 +53,7 @@
    </head>
    <body>
       <header>
-         <nav class="navbar navbar-expand-lg navbar-light bg-gray fixed-top">
+         <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
             <div class="container">
                <a class="navbar-brand" href="index.html">
                   <img
@@ -92,12 +98,20 @@
                   </ul>
                   <form class="d-flex">
                      <button
-                        class="btn btn-theme"
+                        class="btn btn-credential me-3"
                         type="button"
                         data-bs-toggle="modal"
                         data-bs-target="#loginModal"
                      >
                         Register / Login
+                     </button>
+                     <button
+                        class="btn btn-credential"
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#loginModal"
+                     >
+                        Post your Property
                      </button>
                   </form>
                </div>
@@ -156,30 +170,108 @@
                         <div class="tab-content-body py-4">
                            <div class="row">
                               <div class="col-lg-4">
-                                 <select
-                                    class="form-control form-select"
-                                    data-style="btn-primary"
-                                    title="Choose one"
+                                 <div
+                                    class="dropdown"
+                                    data-control="checkbox-dropdown"
                                  >
-                                    <option selected>
-                                       Select your Property type
-                                    </option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
-                                 </select>
+                                    <label class="dropdown-label form-control"
+                                       >Select Category</label
+                                    >
+
+                                    <div class="dropdown-list">
+                                       <a
+                                          href="#"
+                                          data-toggle="check-all"
+                                          class="dropdown-option d-block"
+                                       >
+                                          Check All
+                                       </a>
+                                       <div class="d-flex py-4">
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 1"
+                                             />
+                                             Flat/Apartment
+                                          </label>
+
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 2"
+                                             />
+                                             Residential Land
+                                          </label>
+
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 3"
+                                             />
+                                             Serviced Apartments
+                                          </label>
+
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 4"
+                                             />
+                                             Independent/Builder Floor
+                                          </label>
+
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 5"
+                                             />
+                                             1 RK/ Studio Apartment
+                                          </label>
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 5"
+                                             />
+                                             Other
+                                          </label>
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 5"
+                                             />
+                                             Independent House/Villa
+                                          </label>
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 5"
+                                             />
+                                             Farm House
+                                          </label>
+                                       </div>
+                                    </div>
+                                 </div>
                               </div>
                               <div class="col-lg-6">
-                                 <select
-                                    class="form-control form-select"
-                                    data-style="btn-primary"
-                                    title="Choose one"
-                                 >
-                                    <option selected>
-                                       Select your location
-                                    </option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
-                                 </select>
+                                 <div class="dropdown">
+                                    <input
+                                       class="form-control"
+                                       type="text"
+                                       id="search"
+                                       placeholder="Type your State"
+                                    />
+                                    <ul
+                                       id="state-list"
+                                       class="dropdown-menu"
+                                    ></ul>
+                                 </div>
                               </div>
                               <div class="col">
                                  <button
@@ -202,30 +294,108 @@
                         <div class="tab-content-body py-4">
                            <div class="row">
                               <div class="col-lg-4">
-                                 <select
-                                    class="form-control form-select"
-                                    data-style="btn-primary"
-                                    title="Choose one"
+                                 <div
+                                    class="dropdown"
+                                    data-control="checkbox-dropdown"
                                  >
-                                    <option selected>
-                                       Select your Property type
-                                    </option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
-                                 </select>
+                                    <label class="dropdown-label form-control"
+                                       >Select Category</label
+                                    >
+
+                                    <div class="dropdown-list">
+                                       <a
+                                          href="#"
+                                          data-toggle="check-all"
+                                          class="dropdown-option d-block"
+                                       >
+                                          Check All
+                                       </a>
+                                       <div class="d-flex py-4">
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 1"
+                                             />
+                                             Flat/Apartment
+                                          </label>
+
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 2"
+                                             />
+                                             Residential Land
+                                          </label>
+
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 3"
+                                             />
+                                             Serviced Apartments
+                                          </label>
+
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 4"
+                                             />
+                                             Independent/Builder Floor
+                                          </label>
+
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 5"
+                                             />
+                                             1 RK/ Studio Apartment
+                                          </label>
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 5"
+                                             />
+                                             Other
+                                          </label>
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 5"
+                                             />
+                                             Independent House/Villa
+                                          </label>
+                                          <label class="dropdown-option">
+                                             <input
+                                                type="checkbox"
+                                                name="dropdown-group"
+                                                value="Selection 5"
+                                             />
+                                             Farm House
+                                          </label>
+                                       </div>
+                                    </div>
+                                 </div>
                               </div>
                               <div class="col-lg-6">
-                                 <select
-                                    class="form-control form-select"
-                                    data-style="btn-primary"
-                                    title="Choose one"
-                                 >
-                                    <option selected>
-                                       Select your location
-                                    </option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
-                                 </select>
+                                 <div class="dropdown">
+                                    <input
+                                       class="form-control"
+                                       type="text"
+                                       id="search"
+                                       placeholder="Type your State"
+                                    />
+                                    <ul
+                                       id="state-list"
+                                       class="dropdown-menu"
+                                    ></ul>
+                                 </div>
                               </div>
                               <div class="col">
                                  <button
@@ -244,7 +414,7 @@
             </div>
          </div>
       </div>
-      <section class="exclusive-listing">
+      <!-- <section class="exclusive-listing">
          <div class="container">
             <div class="row">
                <div class="col-lg-12">
@@ -445,36 +615,8 @@
                </div>
             </div>
          </div>
-      </section>
-      <section class="about-us py-5">
-         <div class="container">
-            <div class="row">
-               <div class="col-lg-7">
-                  <div class="about-banner">
-                     <img
-                        src="Assets/images/about-image.png"
-                        alt="about-us"
-                        class="img-fluid"
-                     />
-                  </div>
-               </div>
-               <div class="col-lg-5 ps-lg-5">
-                  <div class="about-details">
-                     <h1 class="title-bold mt-5">About us</h1>
-                     <p class="medium-text py-5">
-                        Our company stands as a premier destination for
-                        exceptional real estate opportunities. With a commitment
-                        to excellence, we provide exclusive listings that grant
-                        you privileged access before they're officially
-                        introduced to the market. <br /><br />Your journey with
-                        us is a step ahead in discovering unique properties and
-                        securing prime investments.
-                     </p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
+      </section> -->
+
       <section class="properties-sale pb-5">
          <div class="container">
             <div class="row">
@@ -505,19 +647,30 @@
                         <div
                            class="d-flex align-items-center justify-content-between py-3"
                         >
-                           <div class="card-list-features">
-                              <p>
-                                 <span>4 Beds </span>
-                                 <span>4 Baths </span>
-                                 <span>2100 Sqft </span>
+                           <div class="card-list-price">
+                              <p class="fw-bold price">
+                                 <i class="bi bi-currency-dollar"></i>700
                               </p>
                               <p class="location">
-                                 <span><i class="bi bi-geo-alt"></i></span
-                                 ><span>Location</span>
+                                 <span
+                                    >4 BHK Flat for rent in Marine Drive,
+                                    Kochi</span
+                                 >
                               </p>
                            </div>
-                           <div class="card-list-price">
-                              <p><i class="bi bi-currency-dollar"></i>700</p>
+                           <div class="card-list-features d-flex">
+                              <div class="text-center p-1">
+                                 <p>4</p>
+                                 <p>Beds</p>
+                              </div>
+                              <div class="text-center p-1">
+                                 <p>4</p>
+                                 <p>Baths</p>
+                              </div>
+                              <div class="text-center p-1">
+                                 <p>2100</p>
+                                 <p>Sq.ft</p>
+                              </div>
                            </div>
                         </div>
                         <div
@@ -546,19 +699,30 @@
                         <div
                            class="d-flex align-items-center justify-content-between py-3"
                         >
-                           <div class="card-list-features">
-                              <p>
-                                 <span>4 Beds </span>
-                                 <span>4 Baths </span>
-                                 <span>2100 Sqft </span>
+                           <div class="card-list-price">
+                              <p class="fw-bold price">
+                                 <i class="bi bi-currency-dollar"></i>700
                               </p>
                               <p class="location">
-                                 <span><i class="bi bi-geo-alt"></i></span
-                                 ><span>Location</span>
+                                 <span
+                                    >4 BHK Flat for rent in Marine Drive,
+                                    Kochi</span
+                                 >
                               </p>
                            </div>
-                           <div class="card-list-price">
-                              <p><i class="bi bi-currency-dollar"></i>700</p>
+                           <div class="card-list-features d-flex">
+                              <div class="text-center p-1">
+                                 <p>4</p>
+                                 <p>Beds</p>
+                              </div>
+                              <div class="text-center p-1">
+                                 <p>4</p>
+                                 <p>Baths</p>
+                              </div>
+                              <div class="text-center p-1">
+                                 <p>2100</p>
+                                 <p>Sq.ft</p>
+                              </div>
                            </div>
                         </div>
                         <div
@@ -587,19 +751,30 @@
                         <div
                            class="d-flex align-items-center justify-content-between py-3"
                         >
-                           <div class="card-list-features">
-                              <p>
-                                 <span>4 Beds </span>
-                                 <span>4 Baths </span>
-                                 <span>2100 Sqft </span>
+                           <div class="card-list-price">
+                              <p class="fw-bold price">
+                                 <i class="bi bi-currency-dollar"></i>700
                               </p>
                               <p class="location">
-                                 <span><i class="bi bi-geo-alt"></i></span
-                                 ><span>Location</span>
+                                 <span
+                                    >4 BHK Flat for rent in Marine Drive,
+                                    Kochi</span
+                                 >
                               </p>
                            </div>
-                           <div class="card-list-price">
-                              <p><i class="bi bi-currency-dollar"></i>700</p>
+                           <div class="card-list-features d-flex">
+                              <div class="text-center p-1">
+                                 <p>4</p>
+                                 <p>Beds</p>
+                              </div>
+                              <div class="text-center p-1">
+                                 <p>4</p>
+                                 <p>Baths</p>
+                              </div>
+                              <div class="text-center p-1">
+                                 <p>2100</p>
+                                 <p>Sq.ft</p>
+                              </div>
                            </div>
                         </div>
                         <div
@@ -628,19 +803,30 @@
                         <div
                            class="d-flex align-items-center justify-content-between py-3"
                         >
-                           <div class="card-list-features">
-                              <p>
-                                 <span>4 Beds </span>
-                                 <span>4 Baths </span>
-                                 <span>2100 Sqft </span>
+                           <div class="card-list-price">
+                              <p class="fw-bold price">
+                                 <i class="bi bi-currency-dollar"></i>700
                               </p>
                               <p class="location">
-                                 <span><i class="bi bi-geo-alt"></i></span
-                                 ><span>Location</span>
+                                 <span
+                                    >4 BHK Flat for rent in Marine Drive,
+                                    Kochi</span
+                                 >
                               </p>
                            </div>
-                           <div class="card-list-price">
-                              <p><i class="bi bi-currency-dollar"></i>700</p>
+                           <div class="card-list-features d-flex">
+                              <div class="text-center p-1">
+                                 <p>4</p>
+                                 <p>Beds</p>
+                              </div>
+                              <div class="text-center p-1">
+                                 <p>4</p>
+                                 <p>Baths</p>
+                              </div>
+                              <div class="text-center p-1">
+                                 <p>2100</p>
+                                 <p>Sq.ft</p>
+                              </div>
                            </div>
                         </div>
                         <div
@@ -669,19 +855,30 @@
                         <div
                            class="d-flex align-items-center justify-content-between py-3"
                         >
-                           <div class="card-list-features">
-                              <p>
-                                 <span>4 Beds </span>
-                                 <span>4 Baths </span>
-                                 <span>2100 Sqft </span>
+                           <div class="card-list-price">
+                              <p class="fw-bold price">
+                                 <i class="bi bi-currency-dollar"></i>700
                               </p>
                               <p class="location">
-                                 <span><i class="bi bi-geo-alt"></i></span
-                                 ><span>Location</span>
+                                 <span
+                                    >4 BHK Flat for rent in Marine Drive,
+                                    Kochi</span
+                                 >
                               </p>
                            </div>
-                           <div class="card-list-price">
-                              <p><i class="bi bi-currency-dollar"></i>700</p>
+                           <div class="card-list-features d-flex">
+                              <div class="text-center p-1">
+                                 <p>4</p>
+                                 <p>Beds</p>
+                              </div>
+                              <div class="text-center p-1">
+                                 <p>4</p>
+                                 <p>Baths</p>
+                              </div>
+                              <div class="text-center p-1">
+                                 <p>2100</p>
+                                 <p>Sq.ft</p>
+                              </div>
                            </div>
                         </div>
                         <div
@@ -710,19 +907,30 @@
                         <div
                            class="d-flex align-items-center justify-content-between py-3"
                         >
-                           <div class="card-list-features">
-                              <p>
-                                 <span>4 Beds </span>
-                                 <span>4 Baths </span>
-                                 <span>2100 Sqft </span>
+                           <div class="card-list-price">
+                              <p class="fw-bold price">
+                                 <i class="bi bi-currency-dollar"></i>700
                               </p>
                               <p class="location">
-                                 <span><i class="bi bi-geo-alt"></i></span
-                                 ><span>Location</span>
+                                 <span
+                                    >4 BHK Flat for rent in Marine Drive,
+                                    Kochi</span
+                                 >
                               </p>
                            </div>
-                           <div class="card-list-price">
-                              <p><i class="bi bi-currency-dollar"></i>700</p>
+                           <div class="card-list-features d-flex">
+                              <div class="text-center p-1">
+                                 <p>4</p>
+                                 <p>Beds</p>
+                              </div>
+                              <div class="text-center p-1">
+                                 <p>4</p>
+                                 <p>Baths</p>
+                              </div>
+                              <div class="text-center p-1">
+                                 <p>2100</p>
+                                 <p>Sq.ft</p>
+                              </div>
                            </div>
                         </div>
                         <div
@@ -745,6 +953,35 @@
             </div>
          </div>
       </section>
+      <section class="about-us py-5">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-7">
+                  <div class="about-banner">
+                     <img
+                        src="Assets/images/about-image.png"
+                        alt="about-us"
+                        class="img-fluid"
+                     />
+                  </div>
+               </div>
+               <div class="col-lg-5 ps-lg-5">
+                  <div class="about-details">
+                     <h1 class="title-bold mt-5">About us</h1>
+                     <p class="medium-text py-5">
+                        Our company stands as a premier destination for
+                        exceptional real estate opportunities. With a commitment
+                        to excellence, we provide exclusive listings that grant
+                        you privileged access before they're officially
+                        introduced to the market. <br /><br />Your journey with
+                        us is a step ahead in discovering unique properties and
+                        securing prime investments.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
       <section class="center-bg py-5">
          <div class="container">
             <div class="row">
@@ -753,7 +990,7 @@
                      <div class="row">
                         <div class="col-lg-6 ms-auto">
                            <div class="our-caption">
-                              <h1 class="text-white">
+                              <h1>
                                  Sell or Rent your property faster with<span
                                     class="d-inline ps-3"
                                     ><img
@@ -1092,17 +1329,18 @@
             </div>
          </div>
       </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script
+         src="https://kit.fontawesome.com/31c5ce1ad1.js"
+         crossorigin="anonymous"
+      ></script>
       <script
          src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
          integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
          crossorigin="anonymous"
       ></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
-      <script
-         src="https://kit.fontawesome.com/31c5ce1ad1.js"
-         crossorigin="anonymous"
-      ></script>
+
       <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script> -->
       <script src="js/script.js"></script>
    </body>

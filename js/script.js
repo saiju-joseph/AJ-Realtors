@@ -73,14 +73,13 @@ $(document).ready(function () {
       .owlCarousel({
          items: slidesPerPage,
          dots: false,
-         nav: false,
+         nav: true,
          smartSpeed: 200,
          slideSpeed: 500,
          slideBy: 1,
          responsiveRefreshRate: 100
       })
       .on('changed.owl.carousel', syncPosition2);
-
    function syncPosition(el) {
       var count = el.item.count - 1;
       var current = Math.round(el.item.index - el.item.count / 2 - 0.5);
@@ -123,4 +122,166 @@ $(document).ready(function () {
       var number = $(this).index();
       sync1.data('owl.carousel').to(number, 300, true);
    });
+});
+
+//dropdown select
+
+(function ($) {
+   var CheckboxDropdown = function (el) {
+      var _this = this;
+      this.isOpen = false;
+      this.areAllChecked = false;
+      this.$el = $(el);
+      this.$label = this.$el.find('.dropdown-label');
+      this.$checkAll = this.$el.find('[data-toggle="check-all"]').first();
+      this.$inputs = this.$el.find('[type="checkbox"]');
+
+      this.onCheckBox();
+
+      this.$label.on('click', function (e) {
+         e.preventDefault();
+         _this.toggleOpen();
+      });
+
+      this.$checkAll.on('click', function (e) {
+         e.preventDefault();
+         _this.onCheckAll();
+      });
+
+      this.$inputs.on('change', function (e) {
+         _this.onCheckBox();
+      });
+   };
+
+   CheckboxDropdown.prototype.onCheckBox = function () {
+      this.updateStatus();
+   };
+
+   CheckboxDropdown.prototype.updateStatus = function () {
+      var checked = this.$el.find(':checked');
+
+      this.areAllChecked = false;
+      this.$checkAll.html('Check All');
+
+      if (checked.length <= 0) {
+         this.$label.html('Select Category');
+      } else if (checked.length === 1) {
+         this.$label.html(checked.parent('label').text());
+      } else if (checked.length === this.$inputs.length) {
+         this.$label.html('All Selected');
+         this.areAllChecked = true;
+         this.$checkAll.html('Uncheck All');
+      } else {
+         this.$label.html(checked.length + ' Selected');
+      }
+   };
+
+   CheckboxDropdown.prototype.onCheckAll = function (checkAll) {
+      if (!this.areAllChecked || checkAll) {
+         this.areAllChecked = true;
+         this.$checkAll.html('Uncheck All');
+         this.$inputs.prop('checked', true);
+      } else {
+         this.areAllChecked = false;
+         this.$checkAll.html('Check All');
+         this.$inputs.prop('checked', false);
+      }
+
+      this.updateStatus();
+   };
+
+   CheckboxDropdown.prototype.toggleOpen = function (forceOpen) {
+      var _this = this;
+
+      if (!this.isOpen || forceOpen) {
+         this.isOpen = true;
+         this.$el.addClass('on');
+         $(document).on('click', function (e) {
+            if (!$(e.target).closest('[data-control]').length) {
+               _this.toggleOpen();
+            }
+         });
+      } else {
+         this.isOpen = false;
+         this.$el.removeClass('on');
+         $(document).off('click');
+      }
+   };
+
+   var checkboxesDropdowns = document.querySelectorAll(
+      '[data-control="checkbox-dropdown"]'
+   );
+   for (var i = 0, length = checkboxesDropdowns.length; i < length; i++) {
+      new CheckboxDropdown(checkboxesDropdowns[i]);
+   }
+})(jQuery);
+
+//state list
+
+const states = [
+   'Andhra Pradesh',
+   'Arunachal Pradesh',
+   'Assam',
+   'Bihar',
+   'Chhattisgarh',
+   'Goa',
+   'Gujarat',
+   'Haryana',
+   'Himachal Pradesh',
+   'Jharkhand',
+   'Karnataka',
+   'Kerala',
+   'Madhya Pradesh',
+   'Maharashtra',
+   'Manipur',
+   'Meghalaya',
+   'Mizoram',
+   'Nagaland',
+   'Odisha',
+   'Punjab',
+   'Rajasthan',
+   'Sikkim',
+   'Tamil Nadu',
+   'Telangana',
+   'Tripura',
+   'Uttar Pradesh',
+   'Uttarakhand',
+   'West Bengal'
+];
+
+const searchInput = document.getElementById('search');
+const stateList = document.getElementById('state-list');
+
+// Populate the list with states
+states.forEach((state) => {
+   const li = document.createElement('li');
+   li.textContent = state;
+   stateList.appendChild(li);
+});
+
+// Show the dropdown when typing
+searchInput.addEventListener('input', () => {
+   const searchText = searchInput.value.toLowerCase();
+   const listItems = stateList.querySelectorAll('li');
+   stateList.style.display = searchText ? 'block' : 'none';
+
+   listItems.forEach((item) => {
+      const text = item.textContent.toLowerCase();
+      item.classList.toggle('hidden', !text.includes(searchText));
+   });
+});
+
+// Handle item selection
+stateList.addEventListener('click', (event) => {
+   if (event.target.tagName === 'LI') {
+      searchInput.value = event.target.textContent;
+      stateList.style.display = 'none';
+   }
+});
+
+// Hide dropdown on blur
+document.addEventListener('click', (event) => {
+   if (!event.target.closest('.dropdown')) {
+      stateList.style.display = 'none';
+   }
 });
